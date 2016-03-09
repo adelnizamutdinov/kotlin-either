@@ -1,0 +1,29 @@
+buildscript {
+  ext {
+    kotlinVersion = "1.0.0"
+  }
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.github.ben-manes:gradle-versions-plugin:0.12.0'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+  }
+}
+
+apply plugin: "com.github.ben-manes.versions"
+apply plugin: "kotlin"
+
+sourceCompatibility = JavaVersion.VERSION_1_6
+targetCompatibility = JavaVersion.VERSION_1_6
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+  testCompile "junit:junit:4.12"
+  testCompile "org.assertj:assertj-core:1.7.1"
+}
