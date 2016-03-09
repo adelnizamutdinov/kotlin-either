@@ -14,8 +14,6 @@ buildscript {
 apply plugin: "com.github.ben-manes.versions"
 apply plugin: "kotlin"
 
-group = "me.adeln"
-version = "1.0.0"
 sourceCompatibility = JavaVersion.VERSION_1_6
 targetCompatibility = JavaVersion.VERSION_1_6
 
@@ -24,8 +22,6 @@ repositories {
 }
 
 dependencies {
-  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-
   testCompile "junit:junit:4.12"
   testCompile "org.assertj:assertj-core:1.7.1"
 }

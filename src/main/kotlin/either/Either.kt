@@ -8,5 +8,5 @@ inline fun <L, R, T> Either<L, R>.fold(left: (L) -> T, right: (R) -> T): T =
     when (this) {
       is Left  -> left(value)
       is Right -> right(value)
-      else     -> error("exhaust")
+      else     -> throw IllegalArgumentException("exhaust")
     }
