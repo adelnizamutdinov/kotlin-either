@@ -1,6 +1,6 @@
 # kotlin-either
 
-an Either type for you to fold all day
+an Either type for you to fold all day, inspired by scalaz https://github.com/scalaz/scalaz/blob/scalaz-seven/core/src/main/scala/scalaz/Either.scala
 
 ## Examples
 
