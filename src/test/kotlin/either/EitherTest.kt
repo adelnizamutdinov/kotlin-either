@@ -1,6 +1,5 @@
 package either
 
-import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 
 class EitherTest {
@@ -14,7 +13,7 @@ class EitherTest {
       is Right -> -1
     }
 
-    assertThat(la).isEqualTo(123 * 2)
+    check(la == 123 * 2)
   }
 
   @Test
@@ -26,7 +25,7 @@ class EitherTest {
       is Right -> "${y.value}right"
     }
 
-    assertThat(lala).isEqualTo("rightright")
+    check(lala == "rightright")
   }
 
   @Test
@@ -36,6 +35,5 @@ class EitherTest {
     check(l.map { it + "yes" } == Left(5))
 
     check(Right(5).map { it * 5 } == Right(25))
-
   }
 }
