@@ -1,6 +1,6 @@
 buildscript {
   ext {
-    kotlinVersion = "1.0.0"
+    kotlinVersion = "1.1.1"
   }
   repositories {
     jcenter()
@@ -22,6 +22,7 @@ repositories {
 }
 
 dependencies {
+  testCompile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
   testCompile "junit:junit:4.12"
   testCompile "org.assertj:assertj-core:1.7.1"
 }
