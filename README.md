@@ -33,5 +33,5 @@ dependencies {
 }
 ```
 
-[![Build Status](https://travis-ci.org/adelnizamutdinov/kotlin-either.svg?branch=master)](https://travis-ci.org/adelnizamutdinov/kotlin-either)
+[![CircleCI](https://circleci.com/gh/adelnizamutdinov/kotlin-either.svg?style=svg)](https://circleci.com/gh/adelnizamutdinov/kotlin-either)
 [![](https://jitpack.io/v/adelnizamutdinov/kotlin-either.svg)](https://jitpack.io/#adelnizamutdinov/kotlin-either)
