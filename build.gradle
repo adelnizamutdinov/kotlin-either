@@ -1,14 +1,14 @@
 buildscript {
-  ext {
-    kotlinVersion = "1.1.1"
-  }
-  repositories {
-    jcenter()
-  }
-  dependencies {
-    classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-  }
+    ext {
+        kotlinVersion = "1.1.2-3"
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
 }
 
 apply plugin: "com.github.ben-manes.versions"
@@ -18,19 +18,19 @@ sourceCompatibility = JavaVersion.VERSION_1_6
 targetCompatibility = JavaVersion.VERSION_1_6
 
 repositories {
-  jcenter()
+    jcenter()
 }
 
 dependencies {
-  testCompile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-  testCompile "junit:junit:4.12"
+    testCompile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    testCompile "junit:junit:4.12"
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
-  classifier = 'sources'
-  from sourceSets.main.allSource
+    classifier = 'sources'
+    from sourceSets.main.allSource
 }
 
 artifacts {
-  archives sourcesJar
+    archives sourcesJar
 }
