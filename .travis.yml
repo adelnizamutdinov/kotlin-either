@@ -1,5 +1,1 @@
 language: java
-
-notifications:
-  email:
-    on_success: change
