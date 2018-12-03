@@ -2,6 +2,10 @@
 
 an Either type for you to fold all day, inspired by scalaz https://github.com/scalaz/scalaz/blob/scalaz-seven/core/src/main/scala/scalaz/Either.scala
 
+## Deprecated since Kotlin 1.3
+
+Please use https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-result/index.html
+
 ## Examples
 
 Creating an `Either<Throwable, T>`
