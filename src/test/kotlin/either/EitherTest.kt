@@ -1,39 +1,35 @@
 package either
 
-import org.junit.Test
+import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 class EitherTest {
 
     @Test
     fun left() {
-        val x: Either<Int, Int> = Left(123)
-
-        val la = when (x) {
-            is Left  -> x.value * 2
-            is Right -> -1
+        val la = when (val x: Either<Int, Int> = Either.Left(value = 123)) {
+            is Either.Left -> x.value * 2
+            is Either.Right -> -1
         }
 
-        check(la == 123 * 2)
+        assertEquals(expected = 123 * 2, actual = la)
     }
 
     @Test
     fun right() {
-        val y: Either<Int, String> = Right("right")
-
-        val lala = when (y) {
-            is Left  -> "${y.value}left"
-            is Right -> "${y.value}right"
+        val lala = when (val y: Either<Int, String> = Either.Right(value = "right")) {
+            is Either.Left -> "${y.value}left"
+            is Either.Right -> "${y.value}right"
         }
 
-        check(lala == "rightright")
+        assertEquals(expected = "rightright", actual = lala)
     }
 
     @Test
     fun map() {
-        val l: Either<Int, String> = Left(5)
+        val l: Either<Int, String> = Either.Left(value = 5)
 
-        check(l.map { it + "yes" } == Left(5))
-
-        check(Right(5).map { it * 5 } == Right(25))
+        assertEquals(Either.Left(value = 5), l.map { it + "yes" })
+        assertEquals(Either.Right(value = 25), Either.Right(value = 5).map { it * 5 })
     }
 }
