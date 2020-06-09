@@ -1,35 +1,55 @@
 package either
 
-import kotlin.test.Test
+import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 class EitherTest {
 
-    @Test
-    fun left() {
-        val la = when (val x: Either<Int, Int> = Either.Left(value = 123)) {
-            is Either.Left -> x.value * 2
-            is Either.Right -> -1
-        }
+    private companion object {
 
-        assertEquals(expected = 123 * 2, actual = la)
-    }
+        fun <T> left(value: T): Either<T, String> =
+            Either.Left(value)
 
-    @Test
-    fun right() {
-        val lala = when (val y: Either<Int, String> = Either.Right(value = "right")) {
-            is Either.Left -> "${y.value}left"
-            is Either.Right -> "${y.value}right"
-        }
-
-        assertEquals(expected = "rightright", actual = lala)
+        fun <T> right(value: T): Either<String, T> =
+            Either.Right(value)
     }
 
     @Test
     fun map() {
-        val l: Either<Int, String> = Either.Left(value = 5)
+        assertEquals(
+            actual = left(5).map { it + "yes" },
+            expected = Either.Left(5)
+        )
 
-        assertEquals(Either.Left(value = 5), l.map { it + "yes" })
-        assertEquals(Either.Right(value = 25), Either.Right(value = 5).map { it * 5 })
+        assertEquals(
+            actual = right(5).map { it * 5 },
+            expected = Either.Right(25)
+        )
+    }
+
+    @Test
+    fun flatMap() {
+        assertEquals(
+            actual = left(5).flatMap { left(it + "yes") },
+            expected = Either.Left(5)
+        )
+
+        assertEquals(
+            actual = right(5).flatMap { left(it * 5) },
+            expected = Either.Left(25)
+        )
+    }
+
+    @Test
+    fun fold() {
+        assertEquals(
+            actual = left(5).fold({ "left" }, { "right" }),
+            expected = "left"
+        )
+
+        assertEquals(
+            actual = right(5).fold({ "left" }, { "right" }),
+            expected = "right"
+        )
     }
 }
